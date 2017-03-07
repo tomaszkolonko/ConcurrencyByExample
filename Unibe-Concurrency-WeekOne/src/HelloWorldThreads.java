@@ -17,6 +17,12 @@ public class HelloWorldThreads {
 		Runnable task = () -> {
 			String threadName = Thread.currentThread().getName();
 			System.out.println("Hello from runnable with thread: " + threadName);
+			// important to catch all exceptions !!!
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		};
 		
 		task.run();
